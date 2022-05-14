@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -23,6 +24,7 @@ class ArticleFactory extends Factory
             'slug' => $slug,
             'img' => 'https://via.placeholder.com/600/5F113B/FFFFFF/?text=LARAVEL:8.*',
             'created_at' => $this->faker->dateTimeBetween('-1 years'),
+            'published_at' => Carbon::now(),
         ];
     }
 }
