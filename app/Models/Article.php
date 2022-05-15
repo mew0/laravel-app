@@ -37,4 +37,8 @@ class Article extends Model
     public function scopeLastLimit($query, $numbers) {
         return $query->with('state', 'tags')->orderBy('created_at', 'desc')->limit($numbers)->get();
     }
+
+    public function scopeAllPaginate($query, $numbers) {
+        return $query->with('state', 'tags')->orderBy('created_at', 'desc')->paginate($numbers);
+    }
 }
