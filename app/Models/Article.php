@@ -41,4 +41,8 @@ class Article extends Model
     public function scopeAllPaginate($query, $numbers) {
         return $query->with('state', 'tags')->orderBy('created_at', 'desc')->paginate($numbers);
     }
+
+    public function scopeFindBySlug($query, $slug) {
+        return $query->with('comments', 'state', 'tags')->where('slug', $slug)->firstOrFail();
+    }
 }
