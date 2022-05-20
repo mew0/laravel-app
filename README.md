@@ -1,64 +1,110 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Тестовое задание для PHP разработчика
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Описание
+Необходимо написать небольшой сайт - статейник. Макет не принципиален. Можно взять bootstrap или любой другой фреймворк. Так же можно использовать любые JS фреймворки.
 
-## About Laravel
+Среднее время выполнения: 4 часа.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Можно не реализовывать хранение изображений. Для заглушек можно юзать сервис [https://placeholder.com/](https://placeholder.com/) или подобный (чтобы не заморачиваться с нарезкой). Либо сделать 2 изображения (миниатюра и обычное) и переиспользовать их.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Всю логику реализуем встроенным функционалом Laravel.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Результат необходимо загрузить в публичный репозиторий GitHub.
 
-## Learning Laravel
+## Стек
+- PHP 7.3+
+- Laravel 8
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Разделы сайта
+- [Главная страница](#главная-страница)
+- [Каталог статей](#каталог-статей)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Страницы сайта
+- Главная страница
+Url: /
+- Каталог статей
+Url: /articles
+- Страница статьи
+Url: /articles/{slug}
 
-## Laravel Sponsors
+## Описание страниц
+### Главная страница
+Компоненты:
+- [Навигационное меню](#навигационное-меню). Активный пункт "Главная страница".
+- Последние добавленные статьи. 6 [миниатюр статей](#миниатюра-статьи) в сортировке LIFO
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Каталог статей
+Компоненты:
+- [Навигационное меню](#навигационное-меню). Активный пункт "Каталог статей".
+- Листинг статей. Сортировка LIFO. 10 [миниатюр статей](#миниатюра-статьи) на страницу
+- [Пейджинация](#пейджинация)
 
-### Premium Partners
+### Статья
+Компоненты:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- [Навигационное меню](#навигационное-меню). Активный пункт "Каталог статей".
+- Обложка статьи
+- Текст статьи
+- [Теги статьи](#тег-статьи)
+- [Счетчик лайков статьи](#счетчик-лайков-статьи)
+- [Счетчик просмотров статьи](#счетчик-просмотров-статьи)
+- [Форма коментария](#форма-комментария)
 
-## Contributing
+## Компоненты
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Навигационное меню
+Необходимо сделать так, чтобы в блоке меню был помечен пункт раздела, в котором находится в текущий момент пользователь. Правила формирования подсветки выбранного раздела описаны в блоке [**Описание страниц**](#описание-страниц)
 
-## Code of Conduct
+### Пейджинация
+Стандартная пейджинация Laravel ([https://laravel.com/docs/7.x/pagination#introduction](https://laravel.com/docs/7.x/pagination#introduction))
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Миниатюра статьи
+Блок состоит из следующих элементов:
+- миниатюра обложки статьи
+- заголовок статьи
+- краткое описание статьи - первые 100 симоволов от текста статьи
 
-## Security Vulnerabilities
+### Тег статьи
+Ссылка. Состоит из url и label. 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Счетчик лайков статьи
+Элемент является кнопкой, на которой в качестве label написано число.
+При клике на кнопку отправляется AJAX запрос, инкрементирующий счетчик. В ответе на запрос 
+возвращается новое значение, которое необходимо отобразить в label.
 
-## License
+### Счетчик просмотров статьи
+Текстовый элемент, отображающие текущий счетчик просмотров. Через 5 секунд после открытия статьи отправляется запрос, инкрементирующий счетчик. В ответе на запрос возвращается новое значение, которое необходимо отобразить в элементе.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Форма комментария
+Форма, состоящая из 2х полей:
+- Тема сообщения
+- Текст сообщения
+
+При нажатии на кнопку "Отправить" отправляется AJAX запрос. При успешной обработке форма заменяется на плашку "Ваше сообщение успешно отправлено".
+
+## API методы
+При реализации API методов учтите, что онлайн блога заранее не известен. 
+Ваша реализация должна позволять избежать блокировок БД в случае огромного количества входящих запросов (допустим 1 млн входящих запрос на инкрементацию счетчика просмотров). Это требования необходимо вам для организации правильного хранения лайков и просмотров.
+Ответ: application/json
+
+### Инкрементирование счетчика лайка
+Ответ: новое значение счетчика
+
+### Инкрементирование счетчика просмотров
+Ответ: новое значение счетчика
+
+### Создание комментария к статье
+Вводные данные: Подразумеваем, что данный механизм очень медленный по какой то причине (100500 операций). Для того, чтобы не городить реально долго выполняющуюся логику, используйте для теста команду sleep(600), которая остановит исполнение кода на 10 минут.
+
+Необходимо реализовать следующую механику:
+- API метод получает запрос
+- метод возращает ответ клиенту
+- метод исполняет логику в фоновом режиме
+
+Передаваемые поля:
+- subject. Varchar(255).
+- body. LongText
+
+Ответы: 
+- ValidationException. Если не заполнено одно из полей.
+- Success. Любой, главное чтобы с 200 кодом.
